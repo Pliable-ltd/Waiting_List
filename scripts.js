@@ -81,4 +81,58 @@ document.addEventListener('DOMContentLoaded', function() {
         output.textContent = message;
         output.style.color = color;
     }
+
+    const sentences = [
+        "All in good time.",
+        "Good things come to those who wait.",
+        "Patience is a virtue.",
+        "Great things take time."
+    ];
+    let currentIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const minTypingSpeed = 50; // Minimum speed of typing (in ms)
+    const maxTypingSpeed = 100; // Maximum speed of typing (in ms)
+    const erasingSpeed = 50; // Speed of erasing (in ms)
+    const pauseBetweenSentences = 1500; // Pause before typing the next sentence
+    const pauseBeforeDeleting = 1000; // Pause before deleting after typing a sentence
+    const targetElement = document.getElementById('slogan_text');
+    
+    function type() {
+        const currentSentence = sentences[currentIndex];
+        const delay = isDeleting ? erasingSpeed : getRandomTypingSpeed();
+    
+        if (!isDeleting) {
+            // Typing the characters
+            targetElement.textContent = currentSentence.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentSentence.length) {
+                // When the entire sentence is typed, pause before deleting
+                isDeleting = true;
+                setTimeout(type, pauseBeforeDeleting);
+            } else {
+                // Continue typing
+                setTimeout(type, delay);
+            }
+        } else {
+            // Erasing the characters
+            targetElement.textContent = currentSentence.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                // When the entire sentence is erased, move to the next sentence
+                isDeleting = false;
+                currentIndex = (currentIndex + 1) % sentences.length; // Loop back to the first sentence
+                setTimeout(type, minTypingSpeed);
+            } else {
+                // Continue erasing
+                setTimeout(type, delay);
+            }
+        }
+    }
+    
+    function getRandomTypingSpeed() {
+        return Math.floor(Math.random() * (maxTypingSpeed - minTypingSpeed + 1)) + minTypingSpeed;
+    }
+    
+    type(); // Start the typing effect
 });
