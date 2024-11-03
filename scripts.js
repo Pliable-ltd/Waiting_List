@@ -2,12 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const FORM_API = "/api/submitToSheety";  // Call the serverless function instead of Sheety directly
 
-    // Get the form and output elements
     const form = document.getElementById('waitListForm');
     const output = document.getElementById('output');
 
-    console.log(form);  // This should log the form element. If it logs `null`, the form id might be incorrect.
-    console.log(output);  // This should log the output element.
+    console.log(form); 
+    console.log(output);  
 
     if (!form) {
         console.error("Form element with id 'waitingListForm' not found.");
@@ -20,19 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return emailPattern.test(email);
     }
 
-    // Function to handle form submission and make an API call
     form.addEventListener('submit', async function(event) {
         event.preventDefault();  // Prevent default form submission
 
-        // Gather form data
         const companyName = document.getElementById('company_name').value;
         const email = document.getElementById('email').value.trim();
 
-        // Clear previous output messages
         output.textContent = "";
         output.style.color = "";
 
-        // Validate required fields
         let isValid = true;
         if (!companyName) {
             isValid = false;
@@ -91,11 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    const minTypingSpeed = 50; // Minimum speed of typing (in ms)
-    const maxTypingSpeed = 100; // Maximum speed of typing (in ms)
-    const erasingSpeed = 50; // Speed of erasing (in ms)
-    const pauseBetweenSentences = 1500; // Pause before typing the next sentence
-    const pauseBeforeDeleting = 1000; // Pause before deleting after typing a sentence
+    const minTypingSpeed = 50; 
+    const maxTypingSpeed = 100; 
+    const erasingSpeed = 50; 
+    const pauseBetweenSentences = 1500; 
+    const pauseBeforeDeleting = 1000; 
     const targetElement = document.getElementById('slogan_text');
     
     function type() {
