@@ -1,5 +1,8 @@
 {
+    "redirects": [
+      { "source": "/", "destination": "/waiting_list", "permanent": true }
+    ],
     "rewrites": [
-        { "source": "/waiting_list", "destination": "/index.html" }
+      { "source": "/waiting_list", "destination": "/index.html" }
     ]
 }
