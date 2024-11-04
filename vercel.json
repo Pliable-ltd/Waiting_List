@@ -1,0 +1,5 @@
+{
+    "rewrites": [
+        { "source": "/waiting_list", "destination": "index.html" }
+    ]
+}
