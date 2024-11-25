@@ -1,22 +1,13 @@
+body{
+    background-color: #333333 !important;
+}
+
 .fonts{
     font-family: "Comfortaa", sans-serif;
 }
 
-#set_height{
-    margin-top: 125px;
-}
-
-#slogan{
-    margin-top: -10px;
-    height: 60px;
-}
-
-#form {
-    margin-top: 20px;
-}
-
-body{
-    background-color: #333333 !important;
+#title_div{
+    margin-top: 3%;
 }
 
 #title_text{
@@ -24,14 +15,71 @@ body{
     font-size: 75px;
 }
 
-#slogan_text{
-    color: white;
-    font-size: 30px;
-    font-weight: 50;
-}
-
 #period{
     color: white;
+}
+
+#intro_div{
+    margin-top: 1%;
+}
+
+#intro_text{
+    color:white;
+    font-size: 15px;
+}
+
+#step1{
+    margin-top: 4%;
+}
+
+.wireframeTitle{
+    color: white;
+    font-size: 20px;
+}
+
+.wireframePink{
+    color: #D16CA7;
+}
+
+.wireframeText{
+    color:white;
+    font-size: 15px;
+}
+
+
+.wireframeImage {
+    width: 100%;
+    height: auto;
+}
+
+#step2{
+    margin-top: 4%;
+}
+
+#step3{
+    margin-top: 4%;
+}
+
+#waitingListDiv{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#waitingListTitle{
+    color: white;
+    font-size: 30px;
+}
+#waitingListPink{
+    color: #D16CA7;
+}
+
+#footer_div{
+    margin-top: 7%;
+    margin-bottom: 5%;
+}
+
+#footer_text{
+    color:#D16CA7;
+    font-size: 75px;
 }
 
 #form {
@@ -78,4 +126,11 @@ body{
 
 #output{
     text-align: center;
+}
+
+@media(max-width: 767px) {
+    .wireframeImage{
+        width: 100%;
+        height: auto;
+    }
 }
