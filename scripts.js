@@ -72,10 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Helper function to show messages
-//     function showMessage(message, color) {
-//         output.textContent = message;
-//         output.style.color = color;
-//     }
+    function showMessage(message, color) {
+        output.textContent = message;
+        output.style.color = color;
+    }
 
 //     const sentences = [
 //         "All in good time.",
