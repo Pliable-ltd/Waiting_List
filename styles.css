@@ -10,6 +10,15 @@ body{
     margin-top: 3%;
 }
 
+hr {
+    color: rgb(255, 255, 255) !important;
+}
+
+#line_one{
+    border-right: 1px solid black;
+}
+
+
 #title_text{
     color:#D16CA7;
     font-size: 75px;
