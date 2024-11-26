@@ -47,6 +47,10 @@ hr {
     background-position: center center;
 }
 
+.righttxt{
+    text-align: end;
+}
+
 #title_text{
     color:#D16CA7;
     font-size: 75px;
