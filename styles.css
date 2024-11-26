@@ -18,6 +18,34 @@ hr {
     border-right: 1px solid black;
 }
 
+.numbers{
+    text-align: center;
+    color: white;
+    font-size: 20;
+}
+
+.ncircle1{
+    background-color: #D16CA7;
+    border-radius: 50%;
+    padding: 34px 41px 34px 41px;
+    /* box-shadow: 0px 0px 5px 5px #D16CA7; */
+    outline: 1px solid #D16CA7;
+}
+
+.ncircle{
+    background-color: #D16CA7;
+    border-radius: 50%;
+    padding: 35px 40px 35px 40px;
+    /* box-shadow: 0px 0px 5px 5px #D16CA7; */
+    outline: 1px solid #D16CA7;
+}
+
+.vline{
+    background-image: linear-gradient(#D16CA7, #D16CA7);
+    background-size: 4px 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
 #title_text{
     color:#D16CA7;

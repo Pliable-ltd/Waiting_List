@@ -131,3 +131,37 @@ document.addEventListener('DOMContentLoaded', function() {
     
 //     type(); // Start the typing effect
 });
+
+function updateVLineGradient() {
+    // Get the viewport height
+    const viewportHeight = window.innerHeight;
+
+    // Calculate the top and bottom positions of the viewport
+    const viewportTop = window.scrollY;
+    const viewportBottom = viewportTop + viewportHeight;
+
+    // Get the center of the viewport
+    const viewportCenter = viewportTop + viewportHeight / 2;
+
+    // Calculate the gradient
+    const gradient = `
+        linear-gradient(
+            to bottom,
+            #333333 ${viewportTop}px,
+            #D16CA7 ${viewportCenter}px,
+            #333333 ${viewportBottom}px
+        )
+    `;
+
+    // Apply the gradient to the .vline element
+    const vline = document.querySelector('.vline');
+    if (vline) {
+        vline.style.backgroundImage = gradient;
+    }
+}
+
+// Attach the function to the scroll event
+window.addEventListener('scroll', updateVLineGradient);
+
+// Initial call to set the gradient on page load
+updateVLineGradient();
