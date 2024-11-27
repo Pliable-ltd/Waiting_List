@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    const FORM_API = "/api/submitToSheety";  // Call the serverless function instead of Sheety directly
+    const FORM_API = "/api/submitToSheety";
 
     const form = document.getElementById('waitListForm');
     const output = document.getElementById('output');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!form) {
         console.error("Form element with id 'waitingListForm' not found.");
-        return;  // Exit if the form is not found to prevent further errors
+        return;
     }
 
     // Function to validate email format
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     form.addEventListener('submit', async function(event) {
-        event.preventDefault();  // Prevent default form submission
+        event.preventDefault(); 
 
         const companyName = document.getElementById('company_name').value;
         const email = document.getElementById('email').value.trim();
@@ -41,10 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
             showMessage("Please enter a valid email address.", "red");
         }
 
-        // If form is valid, proceed with API call
         if (isValid) {
             try {
-                // Make API call to submit data using the serverless function
                 const response = await fetch(FORM_API, {
                     method: 'POST',
                     headers: {
@@ -56,22 +54,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     })
                 });
 
-                // Handle API response
                 if (response.ok) {
                     showMessage(`Thank you, ${companyName}! You've joined the waiting list.`, "white");
-                    form.reset();  // Clear form fields
+                    form.reset();  
                 } else {
                     showMessage("Error: Unable to submit. Please try again later.", "red");
                 }
             } catch (error) {
-                // Handle fetch error
                 showMessage("Network error: Please check your connection and try again.", "red");
                 console.error("Error:", error);
             }
         }
     });
 
-    // Helper function to show messages
     function showMessage(message, color) {
         output.textContent = message;
         output.style.color = color;
@@ -132,36 +127,29 @@ document.addEventListener('DOMContentLoaded', function() {
 //     type(); // Start the typing effect
 });
 
-// function updateVLineGradient() {
-//     // Get the viewport height
-//     const viewportHeight = window.innerHeight;
 
-//     // Calculate the top and bottom positions of the viewport
-//     const viewportTop = window.scrollY;
-//     const viewportBottom = viewportTop + viewportHeight;
+function handleScrollFade() {
+    const scrollPosition = window.scrollY + window.innerHeight; 
+    const documentHeight = document.documentElement.scrollHeight; 
 
-//     // Get the center of the viewport
-//     const viewportCenter = viewportTop + viewportHeight / 2;
+    const cmToPx = 37.8;
+    const triggerDistance = 10 * cmToPx; 
 
-//     // Calculate the gradient
-//     const gradient = `
-//         linear-gradient(
-//             to bottom,
-//             #333333 ${viewportTop}px,
-//             #D16CA7 ${viewportCenter}px,
-//             #333333 ${viewportBottom}px
-//         )
-//     `;
+    const form = document.getElementById('form');
+    const footerDiv = document.getElementById('footer_div');
+    const waitingListDiv = document.getElementById('waitingListDiv');
 
-//     // Apply the gradient to the .vline element
-//     const vline = document.querySelector('.vline');
-//     if (vline) {
-//         vline.style.backgroundImage = gradient;
-//     }
-// }
+    if (scrollPosition >= documentHeight - triggerDistance) {
+        form.classList.add('fade-in');
+        footerDiv.classList.add('fade-in');
+        waitingListDiv.classList.add('fade-in'); 
+    } else {
+        form.classList.remove('fade-in');
+        footerDiv.classList.remove('fade-in');
+        waitingListDiv.classList.remove('fade-in'); 
+    }
+}
 
-// // Attach the function to the scroll event
-// window.addEventListener('scroll', updateVLineGradient);
+window.addEventListener('scroll', handleScrollFade);
 
-// // Initial call to set the gradient on page load
-// updateVLineGradient();
+handleScrollFade();

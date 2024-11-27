@@ -28,7 +28,6 @@ hr {
     background-color: #D16CA7;
     border-radius: 50%;
     padding: 34px 41px 34px 41px;
-    /* box-shadow: 0px 0px 5px 5px #D16CA7; */
     outline: 1px solid #D16CA7;
 }
 
@@ -36,7 +35,6 @@ hr {
     background-color: #D16CA7;
     border-radius: 50%;
     padding: 35px 40px 35px 40px;
-    /* box-shadow: 0px 0px 5px 5px #D16CA7; */
     outline: 1px solid #D16CA7;
 }
 
@@ -174,4 +172,16 @@ hr {
         width: 100%;
         height: auto;
     }
+}
+
+
+#form, #footer_div, #waitingListDiv {
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out; 
+}
+
+#form.fade-in, #footer_div.fade-in, #waitingListDiv.fade-in {
+    opacity: 1;
+    transform: translateY(0); 
 }
